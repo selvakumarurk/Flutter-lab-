@@ -1,0 +1,46 @@
+GRADLE SETUP (do this AFTER running `flutter create .`)
+
+-------------------------------------------------------------
+1) PROJECT-LEVEL:  android/build.gradle.kts
+   Add this block at the TOP of the file:
+-------------------------------------------------------------
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.google.gms:google-services:4.4.1")
+    }
+}
+
+-------------------------------------------------------------
+2) APP-LEVEL:  android/app/build.gradle.kts
+-------------------------------------------------------------
+a) In the plugins { } block, add:
+
+    id("com.google.gms.google-services")
+
+b) In the android { } block, set:
+
+    ndkVersion = "27.0.12077973"
+
+c) Inside android { defaultConfig { } }, set:
+
+    minSdk = 23
+
+d) Add (or extend) a dependencies block at the bottom of the file:
+
+dependencies {
+    implementation(platform("com.google.firebase:firebase-bom:34.3.0"))
+}
+
+-------------------------------------------------------------
+NOTE: If Gradle complains about the buildscript classpath on a newer
+Flutter version, instead open android/settings.gradle.kts and add this
+line inside its plugins { } block:
+
+    id("com.google.gms.google-services") version "4.4.1" apply false
+
+and keep step 2 (a-d) as it is.
+-------------------------------------------------------------

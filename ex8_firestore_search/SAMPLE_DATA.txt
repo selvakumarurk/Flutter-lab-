@@ -1,0 +1,20 @@
+SAMPLE DATA FOR THE `students` COLLECTION
+(Replace these with real names / reg numbers you want to show in your output.)
+
+In Firebase Console -> Firestore Database -> Start collection -> Collection ID: students
+Add each document (Document ID: Auto-ID) with exactly these 4 fields:
+
+  name                 (string)   e.g.  PRIYANKA
+  registrationNumber   (string)   e.g.  URK23CS0001
+  department           (string)   e.g.  CSE(AIML)
+  marks                (number)   e.g.  94
+
+Add 2-3 documents, e.g.:
+
+  1) name: PRIYANKA        registrationNumber: URK23CS0001   department: CSE(AIML)   marks: 94
+  2) name: STUDENT TWO     registrationNumber: URK23CS0002   department: CSE(AIML)   marks: 88
+  3) name: STUDENT THREE   registrationNumber: URK23CS0003   department: CSE         marks: 79
+
+IMPORTANT: the search is an EXACT match and is CASE-SENSITIVE.
+Type the name / registration number exactly as stored (e.g. "PRIYANKA", not "priyanka").
+registrationNumber must be stored as a STRING (not a number).
